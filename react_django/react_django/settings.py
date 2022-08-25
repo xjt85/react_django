@@ -23,7 +23,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ms$v3_srpgvzsv=)gmsu3+d$63*h(81m6d(x0m6-##zpvqr!fa'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+PRODUCTION = False
+
 DEBUG = True
+
+if PRODUCTION:
+    DEBUG = False
+    REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+        )
+    }
 
 ALLOWED_HOSTS = []
 
@@ -38,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'leads.apps.LeadsConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
