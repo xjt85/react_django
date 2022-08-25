@@ -30,8 +30,8 @@ DEBUG = True
 if PRODUCTION:
     DEBUG = False
     REST_FRAMEWORK = {
-    'DEFAULT_RENDERER_CLASSES': (
-        'rest_framework.renderers.JSONRenderer',
+        'DEFAULT_RENDERER_CLASSES': (
+            'rest_framework.renderers.JSONRenderer',
         )
     }
 
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'leads.apps.LeadsConfig',
+    'frontend.apps.FrontendConfig',
     'rest_framework',
 ]
 
